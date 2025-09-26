@@ -1,48 +1,55 @@
-# task-mgt-python
-
-!!def task():
-    tasks = []#empty list
+# task mgt 
+def task():
+    tasks = []  # empty list
     print("WELCOME TO THE TASK MANAGEMENT")
-    
-    
-    total_task = int(input("enter how many task to add"))
-    
-    for i in range(1, total_task+1):
-        task_name = input(f"Enter task {i}: ")#enter  task i =
+
+    total_task = int(input("Enter how many tasks to add: "))
+
+    for i in range(1, total_task + 1):
+        task_name = input(f"Enter task {i}: ")
         tasks.append(task_name)
-        
-    print(f"\nToday's task are:\n{tasks}") 
-    
-    
+
+    print(f"\nToday's tasks are:\n{tasks}")
+
     while True:
-        operation = int(input("Enter 1-Add\n2-Update\n3-delete\n4-View\n5-Exit/Stop"))
-        if operation ==1:
-            add = input("enter task you want to add : ")
+        print("\nOperations Menu:")
+        print("1 - Add Task")
+        print("2 - Update Task")
+        print("3 - Delete Task")
+        print("4 - View Tasks")
+        print("5 - Exit/Stop")
+
+        operation = int(input("Enter operation number: "))
+
+        if operation == 1:
+            add = input("Enter task you want to add: ")
             tasks.append(add)
-            print(f"Task {add} has been successfully added.") 
-        
-        elif operation ==2:
-            Updated_val = input("Enter the task name you want to update : ")
+            print(f"Task '{add}' has been successfully added.")
+
+        elif operation == 2:
+            Updated_val = input("Enter the task name you want to update: ")
             if Updated_val in tasks:
-                new_task = input(" Enter the new task : ")
+                new_task = input("Enter the new task: ")
                 index = tasks.index(Updated_val)
                 tasks[index] = new_task
-                print(f" task '{Updated_val}'has been successfuly updated")
+                print(f"Task '{Updated_val}' has been successfully updated.")
             else:
-               print(f"task '{updated_val}' not found.")
-        elif operation ==3:
-            del_val = input("Which task do you want to delete ? ")
+                print(f"Task '{Updated_val}' not found.")
+
+        elif operation == 3:
+            del_val = input("Which task do you want to delete? ")
             if del_val in tasks:
-                    task.remove(del_val)
-                    print(f" task '{del_val}' has been deleted...")
-            else:(f"task'{del_val}' not found")
-        elif operation ==4:
-           print(f"\ntotal task = {tasks}")
-       
-        elif operation ==5:
-            print("closing the program....")
+                tasks.remove(del_val)
+                print(f"Task '{del_val}' has been deleted.")
+            else:
+                print(f"Task '{del_val}' not found.")
+
+        elif operation == 4:
+            print(f"\nTotal tasks: {tasks}")
+
+        elif operation == 5:
+            print("Closing the program...")
             break
-        
+
         else:
-            print("Invalid Input")
-    
+            print("Invalid Input. Please enter a number between 1-5.")
